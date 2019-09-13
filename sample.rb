@@ -6,15 +6,26 @@ class Player
     puts "1: チョキ"
     puts "2: パー"
 
-    player_hand = gets.to_i
+    player_hand = gets.chomp
+    while true
+      unless player_hand == "0" || player_hand == "1" || player_hand == "2"
+        puts "値が無効です。再度入力してください"
+        puts "数字を入力してください"
+        puts "0: グー"
+        puts "1: チョキ"
+        puts "2: パー"
+        player_hand = gets.chomp
+        true
+      else
+         return player_hand.to_
+       end
 
-    unless player_hand == 0 || player_hand == 1 || player_hand == 2
-      puts "値が無効です。再度入力してください"
-      player_hand = gets.to_i
-    end
-    return player_hand
-  end
-end
+      # self.player_hand
+      ## 繰り返し０、１、２以外の数字を入れさせないプログラムを書く
+
+      end
+   end
+ end
 
 class Enemy
   def hand
@@ -42,6 +53,7 @@ class Janken
 
       player = Player.new
       enemy = Enemy.new
+
       self.pon(player.hand, enemy.hand)
 
     elsif result == 2
